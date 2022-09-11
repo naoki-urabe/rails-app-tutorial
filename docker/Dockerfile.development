@@ -1,0 +1,5 @@
+FROM ruby:3.1.2
+RUN apt-get update
+WORKDIR /rails-app-tutorial
+COPY Gemfile /rails-app-tutorial/Gemfile
+RUN bundle install
