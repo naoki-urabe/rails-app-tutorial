@@ -80,4 +80,7 @@ resource "aws_instance" "instance" {
   sudo yum install -y docker
   sudo service docker start
   EOF
+  tags = {
+    AutoStop = true
+  }
 }
