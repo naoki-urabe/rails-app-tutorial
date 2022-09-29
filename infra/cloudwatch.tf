@@ -1,7 +1,7 @@
-resource "aws_cloudwatch_event_rule" "start_instances_event_rule" {
+/*resource "aws_cloudwatch_event_rule" "start_instances_event_rule" {
   name                = "start_instances_event_rule"
   description         = "Starts stopped EC2 instances"
-  schedule_expression = "cron(00 13 ? * MON-SUN *)"
+  schedule_expression = "cron(00 11 ? * MON-SUN *)"
   depends_on          = ["aws_lambda_function.ec2_start_scheduler_lambda"]
 }
 
@@ -17,13 +17,13 @@ resource "aws_lambda_permission" "allow_cloudwatch_to_call_start_scheduler" {
   function_name = aws_lambda_function.ec2_start_scheduler_lambda.function_name
   principal     = "events.amazonaws.com"
   source_arn    = aws_cloudwatch_event_rule.start_instances_event_rule.arn
-}
+}*/
 
 resource "aws_cloudwatch_event_rule" "stop_instances_event_rule" {
   name                = "stop_instances_event_rule"
   description         = "Stops running EC2 instances"
-  schedule_expression = "cron(00 15 ? * MON-SUN *)"
-  depends_on          = ["aws_lambda_function.ec2_stop_scheduler_lambda"]
+  schedule_expression = "cron(00 13 ? * MON-SUN *)"
+  depends_on          = [aws_lambda_function.ec2_stop_scheduler_lambda]
 }
 
 resource "aws_cloudwatch_event_target" "stop_instances_event_target" {

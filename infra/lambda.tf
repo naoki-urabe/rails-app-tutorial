@@ -1,4 +1,4 @@
-data "archive_file" "start_scheduler" {
+/*data "archive_file" "start_scheduler" {
   type        = "zip"
   source_file = "start_instances.py"
   output_path = "start_instances.zip"
@@ -12,7 +12,7 @@ resource "aws_lambda_function" "ec2_start_scheduler_lambda" {
   runtime          = "python3.9"
   timeout          = 300
   source_code_hash = data.archive_file.start_scheduler.output_base64sha256
-}
+}*/
 
 data "archive_file" "stop_scheduler" {
   type        = "zip"
