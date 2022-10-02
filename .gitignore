@@ -38,3 +38,5 @@
 *.tfstate
 *.tfstate.*
 *.tfvars
+
+*.zip
